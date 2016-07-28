@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
  * Question link: <UVA Question Link>
  * Valid solution: TODO
  */
-public class Main00
+public class Z
 {
     public static void main(String args[])
     {
