@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+test_number="$1"
+
+##
+# The build/validation script
+# for any java programs created
+# during aps class
+##
+
+# Compiles (assumes you have the java jdk, recommended version is 7)
+javac Main0"$test_number".java -d output
+
+# Executes and pipes the output
+java -cp output Main0"$test_number" < testing/input/input-0"$test_number" > testing/output/output-0"$test_number"
+
+# Diffs to check if answer is correct (no output means that your program worked, at least for this set of inputs)
+diff testing/output/output-0"$test_number" testing/answer/answer-0"$test_number"

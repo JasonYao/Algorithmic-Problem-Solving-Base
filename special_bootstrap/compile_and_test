@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+test_letter="$1"
+
+##
+# The build/validation script
+# for any java programs created
+# during aps class for the
+# Google Code Jam
+##
+
+# Compiles (assumes you have the java jdk, recommended version is 7)
+javac "$test_letter".java -d output
+
+# Executes and pipes the output
+java -cp output "$test_letter" < testing/input/input-"$test_letter" > testing/output/output-"$test_letter"
+
+# Diffs to check if answer is correct (no output means that your program worked, at least for this set of inputs)
+diff testing/output/output-"$test_letter" testing/answer/answer-"$test_letter"
